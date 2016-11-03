@@ -8,14 +8,14 @@ module.exports = grunt => {
 
     grunt.registerMultiTask('rcs', 'Rename CSS selectors.', function() {
         const done = this.async();
-        // set options
+        const options = this.options();
+
+        // todo set options
         //      processCss: Boolean
         //      config: String
         //      except: Array | String
-        // todo async process and processCss
 
         this.files.forEach(f => {
-            const options = this.options();
 
             let srcArray = [];
             let src = f.src.filter(filepath => {
