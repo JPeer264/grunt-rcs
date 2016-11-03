@@ -21,20 +21,20 @@ module.exports = function (grunt) {
                 options: {
                     replaceCss: true
                 },
-                files: {
+                files: [{
                     expand: true,
                     cwd: '<%= paths.results %>',
                     src: '**/*.css',
                     dest: '<%= paths.cache %>',
-                }
+                }]
             },
             all: {
-                files: {
+                files: [{
                     expand: true,
                     cwd: '<%= paths.results %>',
-                    src: '**/*.css',
+                    src: ['**/*.js', '**/*.html'],
                     dest: '<%= paths.cache %>',
-                }
+                }]
             }
         }
     });
