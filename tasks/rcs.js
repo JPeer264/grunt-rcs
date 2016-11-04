@@ -5,6 +5,8 @@ module.exports = grunt => {
     const fs    = require('fs');
     const async = require('async');
     const chalk = require('chalk');
+    const json  = require('json-extra');
+    const path  = require('path');
 
     grunt.registerMultiTask('rcs', 'Rename CSS selectors.', function() {
         const done = this.async();
@@ -12,12 +14,24 @@ module.exports = grunt => {
             exclude: ''
         });
 
-        // set excluding selectors
-        rcs.selectorLibrary.setExclude(configObject.exclude);
+        let configPath;
+        let configObject;
 
-        // todo set options
-        //      processCss: Boolean
-        //      config: String
+        if (options.config) {
+            configPath   = options.config || path.join(process.cwd(), '.rcsrc');
+            configObject = json.readToObjSync(configPath);
+
+            if (!configObject) {
+                configObject = json.readToObjSync(path.join(process.cwd(), 'package.json')).rcs;
+            }
+
+            if (configObject) {
+                options.exclude = configObject.exclude || options.exclude;
+            }
+        }
+
+        // set excluding selectors
+        rcs.selectorLibrary.setExclude(options.exclude);
 
         this.files.forEach(f => {
             let src = f.src.filter(filepath => {
