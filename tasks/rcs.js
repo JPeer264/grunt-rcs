@@ -16,8 +16,6 @@ module.exports = grunt => {
         //      except: Array | String
 
         this.files.forEach(f => {
-
-            let srcArray = [];
             let src = f.src.filter(filepath => {
                 if (!grunt.file.exists(filepath)) {
                     grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -29,7 +27,6 @@ module.exports = grunt => {
             });
 
             async.map(src, (pathString, cb) => {
-
                 if (options.replaceCss) {
                     rcs.replace.fileCss(pathString, (err, data) => {
                         if (err) cb(err);
@@ -45,7 +42,6 @@ module.exports = grunt => {
                 }
 
             }, (err, results) => {
-
                 for (let result of results) {
                     grunt.file.write(f.dest, result.data);
 

@@ -1,5 +1,9 @@
 'use strict';
 
+const rcs = require('rcs-core');
+
+rcs.nameGenerator.resetCountForTests();
+
 module.exports = function (grunt) {
     grunt.initConfig({
         paths: {
@@ -32,7 +36,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= paths.results %>',
-                    src: ['**/*.js', '**/*.html'],
+                    src: ['**/*.txt', '**/*.html'],
                     dest: '<%= paths.cache %>',
                 }]
             }
@@ -41,5 +45,5 @@ module.exports = function (grunt) {
 
     grunt.loadTasks('tasks');
 
-    grunt.registerTask('default', 'rcs:css', 'rcs:all');
+    grunt.registerTask('default', ['rcs:css', 'rcs:all']);
 };
