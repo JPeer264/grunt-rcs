@@ -8,12 +8,16 @@ module.exports = grunt => {
 
     grunt.registerMultiTask('rcs', 'Rename CSS selectors.', function() {
         const done = this.async();
-        const options = this.options();
+        const options = this.options({
+            exclude: ''
+        });
+
+        // set excluding selectors
+        rcs.selectorLibrary.setExclude(configObject.exclude);
 
         // todo set options
         //      processCss: Boolean
         //      config: String
-        //      except: Array | String
 
         this.files.forEach(f => {
             let src = f.src.filter(filepath => {
