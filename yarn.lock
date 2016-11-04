@@ -66,7 +66,7 @@ camelcase@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
-chai:
+chai@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/chai/-/chai-3.5.0.tgz#4d02637b067fe958bdbfdd3a40ec56fef7373247"
   dependencies:
@@ -174,14 +174,6 @@ findup-sync@~0.3.0:
   dependencies:
     glob "~5.0.0"
 
-fs-extra:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-1.0.0.tgz#cd3ce5f7e7cb6145883fcae3191e9877f8587950"
-  dependencies:
-    graceful-fs "^4.1.2"
-    jsonfile "^2.1.0"
-    klaw "^1.0.0"
-
 fs-extra@^0.30.0:
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
@@ -191,6 +183,14 @@ fs-extra@^0.30.0:
     klaw "^1.0.0"
     path-is-absolute "^1.0.0"
     rimraf "^2.2.8"
+
+fs-extra@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-1.0.0.tgz#cd3ce5f7e7cb6145883fcae3191e9877f8587950"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^2.1.0"
+    klaw "^1.0.0"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -268,7 +268,7 @@ grunt-cli@~1.2.0:
     nopt "~3.0.6"
     resolve "~1.1.0"
 
-grunt-contrib-clean:
+grunt-contrib-clean@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/grunt-contrib-clean/-/grunt-contrib-clean-1.0.0.tgz#6b2ed94117e2c7ffe32ee04578c96fe4625a9b6d"
   dependencies:
@@ -398,6 +398,12 @@ js-yaml@~3.5.2:
   dependencies:
     argparse "^1.0.2"
     esprima "^2.6.0"
+
+json-extra:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/json-extra/-/json-extra-0.0.7.tgz#a6ede5a911fb17e85760ee477f1d7d1c2d17ff6e"
+  dependencies:
+    fs-extra "^1.0.0"
 
 json3@3.3.2:
   version "3.3.2"
@@ -530,7 +536,7 @@ mkdirp@0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mocha:
+mocha@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.1.2.tgz#51f93b432bf7e1b175ffc22883ccd0be32dba6b5"
   dependencies:
