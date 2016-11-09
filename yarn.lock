@@ -623,9 +623,9 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
-rcs-core@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/rcs-core/-/rcs-core-0.0.1.tgz#e3a1ed41ac93628c60f9df46809484ddb344177d"
+rcs-core:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/rcs-core/-/rcs-core-0.0.2.tgz#665d0e5442adc0104086d7ed158255167382ecb9"
   dependencies:
     decimal-to-any "^1.0.0"
     fs-extra "^0.30.0"
