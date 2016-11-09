@@ -9,23 +9,18 @@
   "dependencies": {
     "async": "^2.1.2",
     "chalk": "^1.1.3",
-    "coveralls": "^2.11.14",
     "json-extra": "^0.0.7",
     "rcs-core": "^0.0.3"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.14",
     "fs-extra": "^1.0.0",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.0.0",
-    "istanbul": "^0.4.5",
     "mocha": "^3.1.2"
   },
   "scripts": {
-    "test": "grunt && mocha --recursive",
-    "coverage": "grunt && istanbul cover _mocha -- --recursive",
-    "coveralls": "npm run coverage && coveralls < coverage/lcov.info"
+    "test": "grunt && mocha --recursive"
   },
   "author": "Jan Peer Stöcklmair",
   "license": "MIT"
