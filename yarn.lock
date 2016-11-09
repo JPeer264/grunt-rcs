@@ -399,7 +399,7 @@ js-yaml@~3.5.2:
     argparse "^1.0.2"
     esprima "^2.6.0"
 
-json-extra:
+json-extra@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/json-extra/-/json-extra-0.0.7.tgz#a6ede5a911fb17e85760ee477f1d7d1c2d17ff6e"
   dependencies:
@@ -623,9 +623,9 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
-rcs-core:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/rcs-core/-/rcs-core-0.0.2.tgz#665d0e5442adc0104086d7ed158255167382ecb9"
+rcs-core@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/rcs-core/-/rcs-core-0.0.3.tgz#b0bf2535065031e402d5f9243048bafa6b6547ee"
   dependencies:
     decimal-to-any "^1.0.0"
     fs-extra "^0.30.0"
