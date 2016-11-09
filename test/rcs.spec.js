@@ -19,4 +19,16 @@ describe('grunt rcs', () => {
 
         done();
     });
+
+    it('should compile all js files', done => {
+        expect(fs.readFileSync(path.join(testCwd, 'main.txt'), 'utf8')).to.equal(fs.readFileSync(path.join(results, 'main.txt'), 'utf8'));
+
+        done();
+    });
+
+    it('should compile all css files with config', done => {
+        expect(fs.readFileSync(path.join(testCwd, 'style-with-exclude.css'), 'utf8')).to.equal(fs.readFileSync(path.join(results, 'style-with-exclude.css'), 'utf8'));
+
+        done();
+    });
 });

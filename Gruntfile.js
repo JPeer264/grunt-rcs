@@ -27,15 +27,29 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= paths.results %>',
+                    cwd: '<%= paths.fixtures %>',
                     src: '**/*.css',
                     dest: '<%= paths.cache %>',
+                }]
+            },
+            cssconfig: {
+                options: {
+                    replaceCss: true,
+                    config: '',
+                    exclude: [
+                        'js',
+                        'no-js'
+                    ]
+                },
+                files: [{
+                    src: '<%= paths.fixtures %>/style.css',
+                    dest: '<%= paths.cache %>/style-with-exclude.css'
                 }]
             },
             all: {
                 files: [{
                     expand: true,
-                    cwd: '<%= paths.results %>',
+                    cwd: '<%= paths.fixtures %>',
                     src: ['**/*.txt', '**/*.html'],
                     dest: '<%= paths.cache %>',
                 }]
@@ -45,5 +59,5 @@ module.exports = function (grunt) {
 
     grunt.loadTasks('tasks');
 
-    grunt.registerTask('default', ['rcs:css', 'rcs:all']);
+    grunt.registerTask('default', ['rcs:css', 'rcs:all', 'rcs:cssconfig']);
 };
