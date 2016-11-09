@@ -11,7 +11,9 @@ module.exports = grunt => {
     grunt.registerMultiTask('rcs', 'Rename CSS selectors.', function() {
         const done = this.async();
         const options = this.options({
-            exclude: ''
+            exclude: '',
+            replaceCss: false,
+            config: undefined
         });
 
         let configPath;
