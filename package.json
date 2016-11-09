@@ -18,6 +18,10 @@
     "styles",
     "munch"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/jpeer264/grunt-rcs"
+  },
   "dependencies": {
     "async": "^2.1.2",
     "chalk": "^1.1.3",
