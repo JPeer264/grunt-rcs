@@ -48,22 +48,27 @@ module.exports = grunt => {
 
             async.map(src, (pathString, cb) => {
                 if (options.replaceCss) {
-                    rcs.replace.fileCss(pathString, (err, data) => {
+                    fs.readFile(pathString, 'utf8', (err, data) => {
                         if (err) cb(err);
 
-                        cb(null, data);
+                        rcs.fillLibraries(data);
+                        const code = rcs.replace.css(data);
+
+                        cb(null, code);
                     });
                 } else {
-                    rcs.replace.file(pathString, (err, data) => {
+                    fs.readFile(pathString, 'utf8', (err, data) => {
                         if (err) cb(err);
 
-                        cb(null, data);
+                        const code = rcs.replace.any(data);
+
+                        cb(null, code);
                     });
                 }
 
             }, (err, results) => {
                 for (let result of results) {
-                    grunt.file.write(f.dest, result.data);
+                    grunt.file.write(f.dest, result);
 
                     // Print a success message.
                     grunt.verbose.write('File ' + chalk.cyan(f.dest) + ' created.\n');

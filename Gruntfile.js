@@ -2,7 +2,8 @@
 
 const rcs = require('rcs-core');
 
-rcs.nameGenerator.resetCountForTests();
+rcs.nameGenerator.setAlphabet('#abcdefghijklmnopqrstuvwxyz');
+rcs.nameGenerator.reset();
 
 module.exports = function (grunt) {
     grunt.initConfig({
