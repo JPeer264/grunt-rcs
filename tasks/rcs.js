@@ -67,6 +67,10 @@ module.exports = grunt => {
                 }
 
             }, (err, results) => {
+                if (err) {
+                    grunt.verbose.write(err);
+                }
+
                 for (let result of results) {
                     grunt.file.write(f.dest, result);
 
