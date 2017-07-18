@@ -47,9 +47,15 @@ module.exports = grunt => {
             });
 
             async.map(src, (pathString, cb) => {
+                grunt.verbose.write('Start compiling ' + pathString);
+
                 if (options.replaceCss) {
                     fs.readFile(pathString, 'utf8', (err, data) => {
-                        if (err) cb(err);
+                        if (err) {
+                            grunt.verbose.write('Error occured in ' + pathString);
+
+                            cb(err);
+                        }
 
                         rcs.fillLibraries(data);
                         const code = rcs.replace.css(data);
@@ -58,7 +64,11 @@ module.exports = grunt => {
                     });
                 } else {
                     fs.readFile(pathString, 'utf8', (err, data) => {
-                        if (err) cb(err);
+                        if (err) {
+                            grunt.verbose.write('Error occured in ' + pathString);
+
+                            cb(err);
+                        }
 
                         const code = rcs.replace.any(data);
 
@@ -72,6 +82,8 @@ module.exports = grunt => {
                 }
 
                 for (let result of results) {
+                    grunt.verbose.write('Start writing ' + result);
+                    grunt.verbose.write('Into following directory: ' + f.dest);
                     grunt.file.write(f.dest, result);
 
                     // Print a success message.
