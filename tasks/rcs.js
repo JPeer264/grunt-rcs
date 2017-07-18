@@ -54,25 +54,25 @@ module.exports = grunt => {
                         if (err) {
                             grunt.verbose.write('Error occured in ' + pathString);
 
-                            cb(err);
+                            return cb(err);
                         }
 
                         rcs.fillLibraries(data);
                         const code = rcs.replace.css(data);
 
-                        cb(null, code);
+                        return cb(null, code);
                     });
                 } else {
                     fs.readFile(pathString, 'utf8', (err, data) => {
                         if (err) {
                             grunt.verbose.write('Error occured in ' + pathString);
 
-                            cb(err);
+                            return cb(err);
                         }
 
                         const code = rcs.replace.any(data);
 
-                        cb(null, code);
+                        return cb(null, code);
                     });
                 }
 
