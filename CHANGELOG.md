@@ -1,3 +1,9 @@
+0.1.0 - July, 18 2017
+
+* 4813d7c Feat: change verbose write to warn (JPeer264)
+* 32a3eaa Fix: return if an error occured (JPeer264)
+* 9b223f2 Feat: add more verbose logs (JPeer264)
+
 0.0.5 - July, 18 2017
 
 * c319544 Feat: add verbose mode for errors (JPeer264)
