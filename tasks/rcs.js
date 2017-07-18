@@ -52,7 +52,7 @@ module.exports = grunt => {
                 if (options.replaceCss) {
                     fs.readFile(pathString, 'utf8', (err, data) => {
                         if (err) {
-                            grunt.verbose.write('Error occured in ' + pathString);
+                            grunt.verbose.warn('Error occured in ' + pathString);
 
                             return cb(err);
                         }
@@ -65,7 +65,7 @@ module.exports = grunt => {
                 } else {
                     fs.readFile(pathString, 'utf8', (err, data) => {
                         if (err) {
-                            grunt.verbose.write('Error occured in ' + pathString);
+                            grunt.verbose.warn('Error occured in ' + pathString);
 
                             return cb(err);
                         }
