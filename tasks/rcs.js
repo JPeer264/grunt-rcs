@@ -79,7 +79,7 @@ module.exports = grunt => {
 
                 for (let result of results) {
                     grunt.verbose.write('Start write into following directory: ' + chalk.cyan(f.dest) + '\n');
-                    grunt.file.write(f.dest, result + '\n');
+                    grunt.file.write(f.dest, result);
 
                     // Print a success message.
                     grunt.verbose.write('File ' + chalk.cyan(f.dest) + ' created.\n');
