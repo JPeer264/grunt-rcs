@@ -38,53 +38,48 @@ module.exports = grunt => {
         this.files.forEach(f => {
             let src = f.src.filter(filepath => {
                 if (!grunt.file.exists(filepath)) {
-                    grunt.log.warn('Source file "' + filepath + '" not found.');
+                    grunt.log.warn('Source file "' + chalk.cyan(filepath) + '" not found.\n');
 
                     return false;
                 }
+
+                grunt.log.write('File found: ' + chalk.cyan(filepath) + '\n')
 
                 return true;
             });
 
             async.map(src, (pathString, cb) => {
-                grunt.verbose.write('Start compiling ' + pathString);
+                fs.readFile(pathString, 'utf8', (err, data) => {
+                    if (err) {
+                        grunt.verbose.warn('Error occured in ' + chalk.cyan(pathString) + '\n');
 
-                if (options.replaceCss) {
-                    fs.readFile(pathString, 'utf8', (err, data) => {
-                        if (err) {
-                            grunt.verbose.warn('Error occured in ' + pathString);
+                        return cb(err);
+                    }
 
-                            return cb(err);
-                        }
+                    grunt.verbose.write('Start compiling ' + chalk.cyan(pathString), '\n');
 
+                    let code;
+
+                    if (options.replaceCss) {
                         rcs.fillLibraries(data);
-                        const code = rcs.replace.css(data);
+                        code = rcs.replace.css(data);
+                    } else {
+                        code = rcs.replace.any(data);
+                    }
 
-                        return cb(null, code);
-                    });
-                } else {
-                    fs.readFile(pathString, 'utf8', (err, data) => {
-                        if (err) {
-                            grunt.verbose.warn('Error occured in ' + pathString);
+                    grunt.verbose.write('Successfully compiled ' + chalk.cyan(pathString), '\n');
 
-                            return cb(err);
-                        }
-
-                        const code = rcs.replace.any(data);
-
-                        return cb(null, code);
-                    });
-                }
-
+                    return cb(null, code);
+                });
             }, (err, results) => {
                 if (err) {
-                    grunt.verbose.write(err);
+                    grunt.verbose.error('Error in file', f.dest + '\n');
+                    grunt.verbose.error(err + '\n');
                 }
 
                 for (let result of results) {
-                    grunt.verbose.write('Start writing ' + result);
-                    grunt.verbose.write('Into following directory: ' + f.dest);
-                    grunt.file.write(f.dest, result);
+                    grunt.verbose.write('Start write into following directory: ' + chalk.cyan(f.dest) + '\n');
+                    grunt.file.write(f.dest, result + '\n');
 
                     // Print a success message.
                     grunt.verbose.write('File ' + chalk.cyan(f.dest) + ' created.\n');
