@@ -1,6 +1,6 @@
 {
   "name": "grunt-rcs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The grunt task to the main module rename-css-selectors",
   "main": "tasks/rcs.js",
   "directories": {

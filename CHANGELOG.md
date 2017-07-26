@@ -1,3 +1,8 @@
+0.2.0 - July, 26 2017
+
+* bbc07e5 Feat: add replaceJs (JPeer264)
+* 06f715e Fix: add more verbose logs (JPeer264)
+
 0.1.0 - July, 18 2017
 
 * 4813d7c Feat: change verbose write to warn (JPeer264)
